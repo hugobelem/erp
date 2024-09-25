@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 
 
@@ -8,6 +9,10 @@ def index(request):
 
 
 def signin(request):
+
+    if request.user.is_authenticated:
+        return redirect('users:account')
+
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -31,6 +36,7 @@ def signout(request):
     logout(request)
     return redirect('users:login')
 
-
+@login_required(login_url='users:login')
 def account(request):
     return render(request, 'users/account.html')
+
