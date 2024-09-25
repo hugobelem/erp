@@ -815,6 +815,10 @@ video {
   justify-items: end;
 }
 
+.justify-items-center {
+  justify-items: center;
+}
+
 .gap-4 {
   gap: 1rem;
 }
