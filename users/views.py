@@ -2,6 +2,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 def index(request):
@@ -9,7 +10,6 @@ def index(request):
 
 
 def signin(request):
-
     if request.user.is_authenticated:
         return redirect('users:account')
 
@@ -19,7 +19,7 @@ def signin(request):
         try:
             user = User.objects.get(username=username)
         except:
-            print('username does not exist')
+            messages.error(request, '')
 
         user = authenticate(request, username=username, password=password)
 
@@ -27,7 +27,7 @@ def signin(request):
             login(request, user)
             return redirect('users:account')
         else:
-            print('usuário ou senha incorreto')
+            messages.error(request, 'dados incorretos')
 
     return render(request, 'users/login.html')
 
