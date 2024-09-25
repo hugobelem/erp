@@ -98,19 +98,19 @@
           <nav>
             <div class="relative flex items-center gap-x-4">
               <a href="{% url "users:index" %}" class="text-sm">
-                <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary hover:bg-primary/10 text-white hover:text-primary ring-1 ring-inset ring-gray-500/10">
+                <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary/10 hover:bg-primary/25 text-primary hover:text-primary ring-1 ring-inset ring-gray-500/10">
                   início
                 </span>
               </a>
         
               <a href="{% url "users:login" %}" class="text-sm">
-                <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary hover:bg-primary/10 text-white hover:text-primary ring-1 ring-inset ring-gray-500/10">
+                <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary/10 hover:bg-primary/25 text-primary hover:text-primary ring-1 ring-inset ring-gray-500/10">
                   login
                 </span>
               </a>
 
               <a href="{% url "users:profile" %}" class="text-sm">
-                <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary hover:bg-primary/10 text-white hover:text-primary ring-1 ring-inset ring-gray-500/10">
+                <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary/10 hover:bg-primary/25 text-primary hover:text-primary ring-1 ring-inset ring-gray-500/10">
                   profile
                 </span>
               </a>
@@ -120,6 +120,24 @@
           <p class="text-xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white">
             bem-vindo
           </p>
+
+          {% comment %} <div class="relative flex items-center gap-x-4">
+            <img
+                src="{% static "images/avatar.jpg" %}"
+                alt=""
+                class="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"/>
+            <div class="text-sm leading-6">
+                <p class="font-semibold text-primary dark:text-white">
+                <a href="#">
+                    <span class="absolute inset-0"></span>
+                    Hugo Belém
+                </a>
+                </p>
+                <p class="text-zinc-500 dark:text-zinc-400">
+                minha conta
+                </p>
+            </div>
+          </div> {% endcomment %}
 
           <br>
           <br>

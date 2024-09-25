@@ -639,6 +639,10 @@ video {
   margin-top: auto;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .block {
   display: block;
 }
@@ -700,6 +704,10 @@ video {
   height: 100vh;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .w-12 {
   width: 3rem;
 }
@@ -722,6 +730,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .flex-none {
@@ -919,6 +931,53 @@ video {
   background-color: rgb(250 250 250 / var(--tw-bg-opacity));
 }
 
+.bg-tertiary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+
+.bg-gray-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+}
+
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+.bg-primary\/35 {
+  background-color: rgb(16 16 16 / 0.35);
+}
+
+.bg-primary\/20 {
+  background-color: rgb(16 16 16 / 0.2);
+}
+
+.bg-primary\/40 {
+  background-color: rgb(16 16 16 / 0.4);
+}
+
+.bg-primary\/60 {
+  background-color: rgb(16 16 16 / 0.6);
+}
+
+.bg-primary\/75 {
+  background-color: rgb(16 16 16 / 0.75);
+}
+
+.bg-primary\/50 {
+  background-color: rgb(16 16 16 / 0.5);
+}
+
+.bg-primary\/70 {
+  background-color: rgb(16 16 16 / 0.7);
+}
+
+.bg-primary\/10 {
+  background-color: rgb(16 16 16 / 0.1);
+}
+
 .stroke-current {
   stroke: currentColor;
 }
@@ -1002,6 +1061,11 @@ video {
   line-height: 1rem;
 }
 
+.text-3xl {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -1012,6 +1076,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-light {
+  font-weight: 300;
 }
 
 .leading-6 {
@@ -1167,6 +1235,14 @@ video {
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(16 16 16 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-primary\/30:hover {
+  background-color: rgb(16 16 16 / 0.3);
+}
+
+.hover\:bg-primary\/25:hover {
+  background-color: rgb(16 16 16 / 0.25);
 }
 
 .hover\:text-primary:hover {
@@ -1454,6 +1530,16 @@ video {
   .lg\:text-8xl {
     font-size: 6rem;
     line-height: 1;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 2rem;
   }
 }
 
