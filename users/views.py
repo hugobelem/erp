@@ -5,11 +5,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 
-def index(request):
-    return render(request, 'index.html')
-
-
 def signin(request):
+    page = 'signin'
+
     if request.user.is_authenticated:
         return redirect('users:account')
 
@@ -29,7 +27,8 @@ def signin(request):
         else:
             messages.error(request, 'dados incorretos')
 
-    return render(request, 'users/auth.html')
+    context = {'page': page}
+    return render(request, 'users/auth.html', context)
 
 
 def signout(request):
@@ -38,7 +37,10 @@ def signout(request):
 
 
 def register(request):
-    return render(request, 'users/auth.html')
+    page = 'register'
+    context = {'page': page}
+    return render(request, 'users/auth.html', context)
+
 
 @login_required(login_url='users:login')
 def account(request):

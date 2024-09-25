@@ -4,9 +4,11 @@ from . import views
 
 app_name = 'users'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.account, name='account'),
 
     path('login/', views.signin, name='login'),
     path('sair/', views.signout, name='logout'),
-    path('conta/', views.account, name='account'),
+
+    path('', views.account, name='account'),
+    path("cadastro/", views.register, name="register"),
 ]
