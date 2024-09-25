@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 
+from .forms import CustomUserCreationForm
+
 
 def signin(request):
     page = 'signin'
@@ -38,7 +40,21 @@ def signout(request):
 
 def register(request):
     page = 'register'
-    context = {'page': page}
+    form = CustomUserCreationForm()
+
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower().strip()
+            user.save()
+
+            login(request, user)
+            return redirect('users:account')
+        else:
+            messages.error(request, 'ocorreu um erro')
+
+    context = {'page': page, 'form': form}
     return render(request, 'users/auth.html', context)
 
 
