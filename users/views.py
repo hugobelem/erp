@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 
 
 def index(request):
     return render(request, 'index.html')
+
 
 def signin(request):
     if request.method == 'POST':
@@ -19,11 +20,17 @@ def signin(request):
 
         if user is not None:
             login(request, user)
-            return redirect('users:profile')
+            return redirect('users:account')
         else:
             print('usuário ou senha incorreto')
 
     return render(request, 'users/login.html')
+
+
+def signout(request):
+    logout(request)
+    return redirect('users:login')
+
 
 def account(request):
     return render(request, 'users/account.html')

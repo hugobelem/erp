@@ -11,7 +11,7 @@
             class="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"/>
         <div class="text-sm leading-6">
             <p class="font-semibold text-primary dark:text-white">
-            <a href="#">
+            <a href="{% url "users:account" %}">
                 <span class="absolute inset-0"></span>
                 @{{ request.user.username }}
             </a>
