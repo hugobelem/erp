@@ -26,4 +26,4 @@ def signin(request):
     return render(request, 'users/login.html')
 
 def account(request):
-    return render(request, 'users/conta.html')
+    return render(request, 'users/account.html')
