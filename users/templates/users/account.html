@@ -13,11 +13,11 @@
             <p class="font-semibold text-primary dark:text-white">
             <a href="#">
                 <span class="absolute inset-0"></span>
-                Hugo Belém
+                @{{ request.user.username }}
             </a>
             </p>
             <p class="text-zinc-500 dark:text-zinc-400">
-            UI Design &amp; Web developer
+            {{ request.user.first_name }} {{ request.user.last_name }}
             </p>
         </div>
     </div>
