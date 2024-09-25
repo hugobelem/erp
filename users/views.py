@@ -29,12 +29,16 @@ def signin(request):
         else:
             messages.error(request, 'dados incorretos')
 
-    return render(request, 'users/login.html')
+    return render(request, 'users/auth.html')
 
 
 def signout(request):
     logout(request)
     return redirect('users:login')
+
+
+def register(request):
+    return render(request, 'users/auth.html')
 
 @login_required(login_url='users:login')
 def account(request):
