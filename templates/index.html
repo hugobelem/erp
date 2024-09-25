@@ -4,15 +4,24 @@
 {% block content %}
 
 <!-- 4 boxes area -->
-<div class="grid grid-rows-4 grid-flow-col gap-4">
-  <div class="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:text-white dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-between items-stretch overflow-hidden text-center lg:text-left">
-    1
+<div class="grid grid-rows-2 lg:grid-rows-4 grid-flow-col gap-4">
+  <a href="{% url "users:profile" %}" class="lg:row-span-2">
+    <div class="ring-1 dark:ring-white/10 hover:shadow-xl ring-primary/5 bg-white dark:bg-secondary dark:text-white dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-center items-stretch overflow-hidden text-center lg:text-center">
+        <div class="flex gap-x-1 justify-center">
+          <img
+          src="{% static "images/avatar.jpg" %}"
+          alt=""
+          class="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"/>
+        </div>
+    </div>
+  </a>
+
+  <div class="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:text-white dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-between items-stretch overflow-hidden text-left lg:text-left">
+    <p class="text-xs text-blue-500">• active</p>
   </div>
-  <div class="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:text-white dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-between items-stretch overflow-hidden text-center lg:text-left">
-    2
-  </div>
+
   <div class="lg:col-span-2 xl:col-span-1 h-full flex flex-col justify-between lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 dark:text-white bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
-    <p>3</p>
+    <p class="text-xs text-yellow-500">• paused</p>
    </div>
 
    <div class="lg:col-span-2 xl:col-span-1 text-center h-full flex flex-col justify-center lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
@@ -106,10 +115,10 @@
 </a>
 
 <!-- login -->
-<div class="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-between items-stretch overflow-hidden text-center lg:text-left">
+<div class="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-between items-stretch overflow-hidden text-left lg:text-left">
 
-  <div class="text-lg leading-6 mb-5">
-    <p class="font-semibold text-primary dark:text-white">
+  <div class="text-lg leading-6 mb-5 text-center">
+    <p class="font-normal text-primary dark:text-white">
       <span class="inset-0"></span>
       acesse sua conta
     </p>
@@ -152,7 +161,7 @@
     </p>
 
     <div class="mt-4 sm:ml-0 sm:mt-4 sm:flex-shrink-0">
-      <button type="submit" class="text-sm py-2 w-full px-4 h-12 font-semibold focus:ring-2 rounded-lg bg-primary dark:bg-white dark:text-primary dark:hover:text-white hover:text-primary dark:hover:bg-white/5 hover:bg-primary/10 text-white flex duration-200 focus:ring-offset-2 focus:ring-inline-flex items-center justify-center">
+      <button type="submit" class="text-sm py-2 w-full px-4 h-12 font-norma focus:ring-2 rounded-lg bg-primary dark:bg-white dark:text-primary dark:hover:text-white hover:text-primary dark:hover:bg-white/5 hover:bg-primary/10 text-white flex duration-200 focus:ring-offset-2 focus:ring-inline-flex items-center justify-center">
         entrar
       </button>
     </div>
@@ -166,7 +175,7 @@
 
 <!-- botom box -->
 <div class="lg:col-span-2 xl:col-span-2 h-full flex flex-col justify-between lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:text-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
- <p>5</p>
+  <p class="text-xs text-red-500">• canceled</p>
 </div>
 
 {% endblock content %}
