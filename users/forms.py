@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['first_name', 'email', 'username', 'password1', 'password2']
+        fields = ['first_name', 'email', 'password1', 'password2']
         labels = {
             'first_name': 'nome',
             'email': 'e-mail',
@@ -21,4 +21,5 @@ class CustomUserCreationForm(UserCreationForm):
             field.widget.attrs.update({
                 'class': 'peer h-8 w-64 border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm',
                 'autofocus': 'false',
+                'placeholder': name,
             })
