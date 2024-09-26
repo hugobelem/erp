@@ -64,10 +64,10 @@ def register(request):
 def account(request):
     if request.user.is_authenticated:
         empresa = request.user.empresa
-        name = request.user.first_name.split()
-        first_name = name[0]
+        name = request.user.first_name
+        avatar_svg = avatar.generate(name)
+        first_name = name.split()[0]
 
-        avatar_svg = avatar.generate(request.user.first_name)
 
     context = {
         'empresa': empresa,
