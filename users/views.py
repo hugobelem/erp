@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 from .forms import CustomUserCreationForm
+from .models import Empresa
 
 
 def signin(request):
@@ -60,5 +61,10 @@ def register(request):
 
 @login_required(login_url='users:login')
 def account(request):
-    return render(request, 'users/account.html')
+    empresa = None
+    if request.user.is_authenticated:
+        empresa = request.user.empresa
+
+    context = {'empresa': empresa}
+    return render(request, 'users/account.html', context)
 
