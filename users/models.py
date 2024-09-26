@@ -28,7 +28,7 @@ class Empresa(models.Model):
     logo = models.ImageField(
         blank=True, null=True,
         upload_to='images/logo',
-        default='logo/avatar.jpg'
+        default='images/logo/default.jpg'
     )
 
     def __str__(self):
