@@ -1,11 +1,12 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.utils.safestring import mark_safe
 from django.contrib.auth.models import User
 from django.contrib import messages
 
 from .forms import CustomUserCreationForm
-from .models import Empresa
+from static.assets import avatar
 
 
 def signin(request):
@@ -66,5 +67,12 @@ def account(request):
         name = request.user.first_name.split()
         first_name = name[0]
 
-    context = {'empresa': empresa, 'first_name': first_name}
+        avatar_svg = avatar.generate(request.user.first_name)
+
+    context = {
+        'empresa': empresa,
+        'first_name': first_name,
+        'avatar': mark_safe(avatar_svg)
+    }
+
     return render(request, 'users/account.html', context)
