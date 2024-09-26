@@ -1,5 +1,7 @@
 from django.db import models
+from django.dispatch import receiver
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save, post_delete
 
 
 class Empresa(models.Model):
@@ -30,5 +32,19 @@ class Empresa(models.Model):
     )
 
     def __str__(self):
-        return self.fantasia
-    
+        if self.fantasia:
+            return self.fantasia
+        else:
+            return f'Empresa de {self.user.first_name}'
+
+
+@receiver(post_save, sender=User)
+def create_empresa(sender, instance, created, **kwargs):
+    if created:
+        user = instance
+        empresas = Empresa.objects.create(user=user)
+
+@receiver(post_delete, sender=Empresa)
+def delete_user(sender, instance, **kwargs):
+    user = instance.user
+    user.delete()
