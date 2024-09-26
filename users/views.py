@@ -41,6 +41,9 @@ def signout(request):
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('users:account')
+
     page = 'register'
     form = CustomUserCreationForm()
 
