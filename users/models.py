@@ -28,3 +28,7 @@ class Empresa(models.Model):
         upload_to='images/logo',
         default='logo/avatar.jpg'
     )
+
+    def __str__(self):
+        return self.fantasia
+    
