@@ -1,31 +1,31 @@
 <div class="lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8 h-full flex flex-col">
-<nav>
-    <div class="relative flex items-center gap-x-4">
-    
-    <a href="{% url "index" %}" class="text-sm">
-        <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary/10 hover:bg-primary/25 text-primary hover:text-primary ring-1 ring-inset ring-gray-500/10">
-        início
-        </span>
-    </a>
-    <a href="{% url "users:login" %}" class="text-sm">
-        <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary/10 hover:bg-primary/25 text-primary hover:text-primary ring-1 ring-inset ring-gray-500/10">
-        entrar
-        </span>
-    </a>
-    <a href="{% url "users:register" %}" class="text-sm">
-        <span class="inline-flex items-center rounded-md hover:bg-blue-800 dark:hover:text-white px-2 py-1 text-xs font-medium bg-blue-600 text-stone-100 hover:text-stone-100 ring-1 ring-inset ring-gray-500/10">
-        teste grátis
-        </span>
-    </a>
+    <nav>
+        <div class="relative flex items-center gap-x-4">
+        
+        <a href="{% url "index" %}" class="text-sm">
+            <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary/10 hover:bg-primary/25 text-primary hover:text-primary ring-1 ring-inset ring-gray-500/10">
+            início
+            </span>
+        </a>
+        <a href="{% url "users:login" %}" class="text-sm">
+            <span class="inline-flex items-center rounded-md dark:hover:bg-tertiary dark:hover:text-white dark:text-primary dark:bg-white px-2 py-1 text-xs font-medium bg-primary/10 hover:bg-primary/25 text-primary hover:text-primary ring-1 ring-inset ring-gray-500/10">
+            entrar
+            </span>
+        </a>
+        <a href="{% url "users:register" %}" class="text-sm">
+            <span class="inline-flex items-center rounded-md hover:bg-blue-800 dark:hover:text-white px-2 py-1 text-xs font-medium bg-blue-600 text-stone-100 hover:text-stone-100 ring-1 ring-inset ring-gray-500/10">
+            teste grátis
+            </span>
+        </a>
 
-    </div>
-</nav>
+        </div>
+    </nav>
 
-<p class="text-xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white">
-    bem-vindo
-    <a href="{% url "users:account" %}"
-    class="underline decoration-3 decoration-pink-400">
-    {{ first_name | lower }}
-    </a>
-</p>
+    <p class="text-xl mt-6 font-medium lg:text-4xl tracking-tight text-primary dark:text-white">
+        bem-vindo
+        <a href="{% url "users:account" %}"
+        class="underline decoration-3 decoration-pink-400">
+        {{ first_name | lower }}
+        </a>
+    </p>
 </div>
