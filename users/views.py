@@ -61,10 +61,10 @@ def register(request):
 
 @login_required(login_url='users:login')
 def account(request):
-    empresa = None
     if request.user.is_authenticated:
         empresa = request.user.empresa
+        name = request.user.first_name.split()
+        first_name = name[0]
 
-    context = {'empresa': empresa}
+    context = {'empresa': empresa, 'first_name': first_name}
     return render(request, 'users/account.html', context)
-

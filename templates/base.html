@@ -129,7 +129,7 @@
             bem-vindo
             <a href="{% url "users:account" %}"
               class="underline decoration-3 decoration-pink-400">
-              {{ request.user.first_name|lower }}
+              {{ first_name | lower }}
             </a>
           </p>
 
