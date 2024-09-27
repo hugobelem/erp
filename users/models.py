@@ -1,5 +1,13 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
 
 class Empresa(models.Model):
@@ -33,5 +41,4 @@ class Empresa(models.Model):
         if self.fantasia:
             return self.fantasia
         else:
-            return f'Empresa de {self.user.first_name}'
-
+            return f'Empresa de {self.user.email}'
