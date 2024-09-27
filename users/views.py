@@ -2,10 +2,11 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
-from django.contrib.auth.models import User
 from django.contrib import messages
 
 from .forms import CustomUserCreationForm
+from .models import User
+
 from static.assets import avatar
 
 
@@ -67,7 +68,7 @@ def register(request):
 def account(request):
     if request.user.is_authenticated:
         empresa = request.user.empresa
-        name = request.user.first_name
+        name = request.user.name
         avatar_svg = avatar.generate(name)
         first_name = name.split()[0]
 
