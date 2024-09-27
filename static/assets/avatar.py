@@ -1,6 +1,6 @@
 def generate(text:str) -> str:
     if not text:
-        raise ValueError('Input text must not be empty')
+        raise ValueError('Avatar SVG Generate: name must not be empty')
 
     names = text.upper().split()
     first_initial = names[0][0]
