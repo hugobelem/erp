@@ -80,3 +80,16 @@ def account(request):
     }
 
     return render(request, 'users/account.html', context)
+
+@login_required(login_url='users:login')
+def update_user(request):
+    user = request.user
+    form = CustomUserCreationForm(instance=user)
+
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('users:account')
+        
+    return render(request, 'users/update_user.html', {'form': form})
