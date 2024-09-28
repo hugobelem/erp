@@ -36,7 +36,8 @@ class CustomUserChangeForm(UserChangeForm):
         ]
         labels = {
             'email': 'e-mail',
-            'name': 'nome'
+            'name': 'nome',
+            'username': 'nome de usuário',
         }
     
 
