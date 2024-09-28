@@ -104,3 +104,15 @@ def update_user(request):
     context.update(navbar(request))
 
     return render(request, 'users/registration/update_user.html', context)
+
+
+@login_required(login_url='users:login')
+def delete_user(request):
+    user = request.user
+    
+    if request.method == "POST":
+        user.delete()
+        return redirect('index')
+    
+    context = {'user': user}
+    return render(request, 'users/registration/update_user.html', context)
