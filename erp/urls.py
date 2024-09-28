@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 from django.contrib.auth import views as auth_views
+from users import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +31,15 @@ urlpatterns = [
         'recuperar-senha/fim/', 
         auth_views.PasswordResetCompleteView.as_view(),
         name='password_reset_complete'
-    ),   
+    ),
+    
+    path(
+        'conta/usuario/alterar-senha/fim/',
+        views.ChangeDonePasswordView.as_view(
+            template_name='users/registration/password_change_done.html'
+        ),
+        name='password_change_done'
+    ),
 ]
 
 
