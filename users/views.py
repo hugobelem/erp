@@ -116,18 +116,14 @@ def delete_user(request):
     return render(request, 'users/registration/update_user.html', context)
 
 
-class ChangePasswordView(auth_views.PasswordChangeView):
-    template_name = 'users/registration/password_change_form.html'
-    
+class ChangePasswordView(auth_views.PasswordChangeView):    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(navbar(self.request))
         return context
 
 
-class ChangeDonePasswordView(auth_views.PasswordChangeDoneView):
-    template_name = 'users/registration/password_change_done.html'
-    
+class ChangeDonePasswordView(auth_views.PasswordChangeDoneView):    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(navbar(self.request))
