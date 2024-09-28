@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
 from django.contrib import messages
 
-from .forms import CustomUserCreationForm, EmpresaForm
+from .forms import CustomUserCreationForm
 from .models import User
 
 from static.assets import avatar
