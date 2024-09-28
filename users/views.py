@@ -9,28 +9,6 @@ from .models import User
 
 from static.assets import avatar
 
-class NavbarContext:
-    def __init__(self, request):
-        if request.user.is_authenticated:
-            self.empresa = request.user.empresa
-            self.name = request.user.name
-            self.avatar_svg = avatar.generate(self.name)
-            self.first_name = self.name.split()[0]
-
-        self.context = {
-            'empresa': self.empresa,
-            'first_name': self.first_name,
-            'avatar': mark_safe(self.avatar_svg)
-        }
-
-    def add(self, key, value):
-        """Adiciona novas chaves e valores ao dicionário context."""
-        self.context[key] = value
-        return self.context
-
-    def get(self):
-        """Retorna o dicionário context."""
-        return self.context
 
 def signin(request):
     page = 'signin'
