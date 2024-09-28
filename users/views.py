@@ -52,7 +52,6 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username.lower().strip()
             user.save()
 
             login(request, user)
