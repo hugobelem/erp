@@ -56,8 +56,6 @@ def register(request):
 
             login(request, user)
             return redirect('users:account')
-        else:
-            messages.error(request, 'ocorreu um erro')
 
     context = {'page': page, 'form': form}
     return render(request, 'users/registration/auth.html', context)
@@ -97,8 +95,6 @@ def update_user(request):
             form.save()
             login(request, user)
             return redirect('users:account')
-        else:
-            print(form.errors)
     
     context = {'form': form}
     context.update(navbar(request))
