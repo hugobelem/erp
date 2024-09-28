@@ -73,11 +73,21 @@
             atualizar
           </button>
         </div>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-6">
-            <a href="{% url "users:account" %}" class="underline">
-                cancelar
-            </a>
-        </p> 
+    </form>
+
+    <form
+        action="{% url "users:delete_user" %}"
+        method="POST"
+        class="mt-6">
+        {% csrf_token %}
+    
+        <div class="mt-4 sm:ml-0 sm:mt-4 text-center sm:flex-shrink-0">
+          <button 
+            type="submit" 
+            class="text-sm text-zinc-500 dark:text-zinc-400">
+            excluir conta
+          </button>
+        </div>
     </form>
 
 </div>
