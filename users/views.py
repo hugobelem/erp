@@ -33,7 +33,7 @@ def signin(request):
             messages.error(request, 'dados incorretos')
 
     context = {'page': page}
-    return render(request, 'users/auth.html', context)
+    return render(request, 'users/registration/auth.html', context)
 
 
 def signout(request):
@@ -61,25 +61,31 @@ def register(request):
             messages.error(request, 'ocorreu um erro')
 
     context = {'page': page, 'form': form}
-    return render(request, 'users/auth.html', context)
+    return render(request, 'users/registration/auth.html', context)
+
+
+def navbar(request):
+    if request.user.is_authenticated:
+        user = request.user
+        svg = avatar.generate(request.user.name)
+        first_name = request.user.name.split()[0]
+
+        context = {
+            'empresa': user.empresa,
+            'first_name': first_name,
+            'avatar': mark_safe(svg),
+        }
+    
+    return context
 
 
 @login_required(login_url='users:login')
 def account(request):
-    if request.user.is_authenticated:
-        empresa = request.user.empresa
-        name = request.user.name
-        avatar_svg = avatar.generate(name)
-        first_name = name.split()[0]
-
-
-    context = {
-        'empresa': empresa,
-        'first_name': first_name,
-        'avatar': mark_safe(avatar_svg)
-    }
+    context = {}
+    context.update(navbar(request))
 
     return render(request, 'users/account.html', context)
+
 
 @login_required(login_url='users:login')
 def update_user(request):
@@ -95,5 +101,6 @@ def update_user(request):
             print(form.errors)
     
     context = {'form': form}
+    context.update(navbar(request))
 
-    return render(request, 'users/update_user.html', context)
+    return render(request, 'users/registration/update_user.html', context)
