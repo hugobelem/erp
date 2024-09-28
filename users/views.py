@@ -96,6 +96,7 @@ def update_user(request):
         form = CustomUserCreationForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
+            login(request, user)
             return redirect('users:account')
         else:
             print(form.errors)
