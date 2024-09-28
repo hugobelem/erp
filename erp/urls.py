@@ -32,7 +32,12 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(),
         name='password_reset_complete'
     ),
-    
+
+    path(
+        'conta/usuario/alterar-senha/',
+        views.ChangePasswordView.as_view(),
+        name='password_change'
+    ),
     path(
         'conta/usuario/alterar-senha/fim/',
         views.ChangeDonePasswordView.as_view(
