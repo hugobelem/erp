@@ -8,12 +8,10 @@ class CustomUserCreationForm(UserCreationForm):
         fields = [
             'email',
             'name',
-            'username',
         ]
         labels = {
             'email': 'e-mail',
-            'name': 'nome',
-            'username': 'usuário',
+            'name': 'nome'
         }
 
     def __init__(self, *args, **kwargs):
