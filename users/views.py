@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
 from django.contrib import messages
 
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import User
 
 from static.assets import avatar
@@ -89,10 +89,10 @@ def account(request):
 @login_required(login_url='users:login')
 def update_user(request):
     user = request.user
-    form = CustomUserCreationForm(instance=user)
+    form = CustomUserChangeForm(instance=user)
 
     if request.method == "POST":
-        form = CustomUserCreationForm(request.POST, instance=user)
+        form = CustomUserChangeForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
             login(request, user)
