@@ -7,6 +7,8 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import User
 
+from django.contrib.auth import views as auth_views
+
 from static.assets import avatar
 
 
@@ -112,3 +114,21 @@ def delete_user(request):
     
     context = {'user': user}
     return render(request, 'users/registration/update_user.html', context)
+
+
+class ChangePasswordView(auth_views.PasswordChangeView):
+    template_name = 'users/registration/password_change_form.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(navbar(self.request))
+        return context
+
+
+class ChangeDonePasswordView(auth_views.PasswordChangeDoneView):
+    template_name = 'users/registration/password_change_done.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(navbar(self.request))
+        return context
