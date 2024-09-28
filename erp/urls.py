@@ -40,9 +40,7 @@ urlpatterns = [
     ),
     path(
         'conta/usuario/alterar-senha/fim/',
-        views.ChangeDonePasswordView.as_view(
-            template_name='users/registration/password_change_done.html'
-        ),
+        views.ChangeDonePasswordView.as_view(),
         name='password_change_done'
     ),
 ]
