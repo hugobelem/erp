@@ -32,6 +32,8 @@ def auto_delete_logo_on_change(sender, instance, **kwargs):
         return False
     
     new_logo = instance.logo
-    if not old_logo == new_logo:
+    if not old_logo:
+        pass
+    elif not old_logo == new_logo:
         if os.path.isfile(old_logo.path):
             os.remove(old_logo.path)
