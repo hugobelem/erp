@@ -19,3 +19,6 @@ notes
 
 # Uploaded images
 static/images/logo/*
+
+# Ignore auto-generated CSS files
+static/output.css
