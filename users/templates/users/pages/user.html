@@ -46,5 +46,12 @@
     <p class="text-sm text-zinc-500 dark:text-zinc-400 font-normal lg:text-lg">
         {{ request.user.email }}
     </p>
+
+    <p class="text-sm text-zinc-500 dark:text-zinc-400 font-normal lg:text-lg">
+        <a href="{% url "users:logout" %}" class="text-sm text-blue-500 dark:text-blue-400">
+            sair
+        </a>
+    </p>
+
 </div>
 {% endblock content %}
