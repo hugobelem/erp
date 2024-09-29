@@ -14,12 +14,12 @@
                 {% if request.user.username %}
                 @{{ request.user.username }}
                 {% else %}
-                {{ request.user.name }}
+                {{ request.user.email }}
                 {% endif %}
             </a>
             </p>
             <p class="text-zinc-500 dark:text-zinc-400">
-            {{ request.user.first_name }} {{ request.user.last_name }}
+            {{ request.user.name }}
             </p>
         </div>
         <div class="ml-auto absolute right-0 top-0">
