@@ -1,14 +1,14 @@
 <div class="lg:row-span-2 rounded-3xl p-8 h-full flex flex-col">  
     <p class="text-xl ml-2 font-medium lg:text-3xl tracking-tight text-primary dark:text-white">
       bem-vindo
-      <a href="{% url "users:account" %}"
+      <a href="{% url "users:user" %}"
         class="underline decoration-3 decoration-pink-400">
         {{ first_name | lower }}
       </a>
     </p>
 
     <div class="grid grid-rows-2 lg:grid-rows-4 grid-flow-col gap-4 mt-10">
-      <a href="{% url "users:update_user" %}" class="lg:row-span-2">
+      <a href="{% url "users:user" %}" class="lg:row-span-2">
           <div class="ring-1 dark:ring-white/10 hover:shadow-xl ring-primary/5 bg-white dark:bg-secondary dark:text-white dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-center items-stretch overflow-hidden text-center lg:text-center">
               <div class="flex gap-x-1 justify-center">
                   {{ avatar }}
