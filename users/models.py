@@ -9,6 +9,9 @@ class User(AbstractUser):
         max_length=100, unique=True, blank=True, null=True
     )
 
+    first_name = None
+    last_name = None
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
