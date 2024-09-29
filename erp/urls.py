@@ -13,6 +13,9 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('conta/', include('users.urls')),
 
+    path('login/', views.signin, name='login'),
+    path("cadastro/", views.register, name="register"),
+
     path(
         'recuperar-senha/', 
         auth_views.PasswordResetView.as_view(),
