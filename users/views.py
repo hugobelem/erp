@@ -36,12 +36,12 @@ def signin(request):
             messages.error(request, 'dados incorretos')
 
     context = {'page': page}
-    return render(request, 'users/registration/auth.html', context)
+    return render(request, 'registration/auth.html', context)
 
 
 def signout(request):
     logout(request)
-    return redirect('users:login')
+    return redirect('login')
 
 
 def register(request):
@@ -61,7 +61,7 @@ def register(request):
             return redirect('users:account')
 
     context = {'page': page, 'form': form}
-    return render(request, 'users/registration/auth.html', context)
+    return render(request, 'registration/auth.html', context)
 
 
 def navbar(request):
@@ -79,7 +79,7 @@ def navbar(request):
     return context
 
 
-@login_required(login_url='users:login')
+@login_required(login_url='login')
 def account(request):
     context = {}
     context.update(navbar(request))
@@ -87,7 +87,14 @@ def account(request):
     return render(request, 'users/account.html', context)
 
 
-@login_required(login_url='users:login')
+def user(request):
+    context= {}
+    context.update(navbar(request))
+
+    return render(request, 'users/pages/user.html', context)
+
+
+@login_required(login_url='login')
 def update_user(request):
     user = request.user
     form = CustomUserChangeForm(instance=user)
@@ -102,10 +109,10 @@ def update_user(request):
     context = {'form': form}
     context.update(navbar(request))
 
-    return render(request, 'users/registration/update_user.html', context)
+    return render(request, 'users/pages/update_user.html', context)
 
 
-@login_required(login_url='users:login')
+@login_required(login_url='login')
 def delete_user(request):
     user = request.user
     
@@ -123,7 +130,7 @@ class ChangePasswordView(auth_views.PasswordChangeView):
         context.update(navbar(self.request))
         return context
     
-    @method_decorator(login_required(login_url='users:login'))
+    @method_decorator(login_required(login_url='login'))
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
@@ -134,6 +141,6 @@ class ChangeDonePasswordView(auth_views.PasswordChangeDoneView):
         context.update(navbar(self.request))
         return context
     
-    @method_decorator(login_required(login_url='users:login'))
+    @method_decorator(login_required(login_url='login'))
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
