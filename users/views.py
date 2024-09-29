@@ -1,17 +1,16 @@
-from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import views as auth_views
+from django.contrib import messages
+
 from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
-from django.contrib import messages
+from django.utils.decorators import method_decorator
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import User
 
-from django.contrib.auth import views as auth_views
-
 from static.assets import avatar
-
-from django.utils.decorators import method_decorator
 
 
 def signin(request):
