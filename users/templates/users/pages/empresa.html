@@ -1,9 +1,20 @@
+{% extends "users/account.html" %}
+
+{% block content %}
 <div class="lg:row-span-1 ring-1 dark:ring-white/10 hover:shadow-lg ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
     <div class="relative flex items-center gap-x-4">
-        <img
+        {% if empresa.logo %}
+        <div class="flex gap-x-1 justify-center">
+            <img
             src="{{ empresa.logo.url }}"
-            alt=""
+            alt="{{ empresa.name }} Logo"
             class="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"/>
+        </div>
+        {% else %}
+        <p class="text-xl">
+            💼
+        </p>
+        {% endif %}
         <div class="text-sm leading-6">
             <p class="font-semibold text-primary dark:text-white">
             <a>
@@ -39,3 +50,4 @@
         {{ empresa.email }}
     </p>
 </div>
+{% endblock content %}
