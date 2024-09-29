@@ -108,7 +108,7 @@ def update_user(request):
         if form.is_valid():
             form.save()
             login(request, user)
-            return redirect('users:account')
+            return redirect('users:user')
     
     context = {'form': form}
     context.update(navbar(request))
