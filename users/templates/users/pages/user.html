@@ -12,7 +12,7 @@
             <a>
                 <span class="absolute inset-0"></span>
                 {% if request.user.username %}
-                {{ request.user.username }}
+                @{{ request.user.username }}
                 {% else %}
                 {{ request.user.email }}
                 {% endif %}
