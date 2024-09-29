@@ -7,7 +7,11 @@ from django.shortcuts import render, redirect
 from django.utils.safestring import mark_safe
 from django.utils.decorators import method_decorator
 
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import (
+    CustomUserCreationForm,
+    CustomUserChangeForm,
+    CustomPasswordChangeForm,
+)
 from .models import User
 
 from static.assets import avatar
@@ -125,6 +129,8 @@ def delete_user(request):
 
 
 class ChangePasswordView(auth_views.PasswordChangeView):    
+    form_class = CustomPasswordChangeForm    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(navbar(self.request))
