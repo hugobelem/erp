@@ -32,7 +32,7 @@ class Empresa(models.Model):
     email = models.EmailField(blank=True, null=True)
     segmento_atuacao = models.CharField(max_length=255, blank=True, null=True)
     tipo_pessoa = models.CharField(max_length=50, blank=True, null=True)
-    cpf_cnpj = models.CharField(max_length=50, blank=True, null=True)
+    cpf_cnpj = models.CharField(max_length=50, blank=False, null=True)
     inscricao_estadual = models.CharField(max_length=50, blank=True, null=True)
     logo = models.ImageField(
         blank=True, null=True,
