@@ -150,3 +150,10 @@ class ChangeDonePasswordView(auth_views.PasswordChangeDoneView):
     @method_decorator(login_required(login_url='login'))
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
+    
+
+def empresa(request):
+    context = {}
+    context.update(navbar(request))
+
+    return render(request, 'users/pages/empresa.html', context)
