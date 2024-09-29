@@ -11,6 +11,8 @@ from django.contrib.auth import views as auth_views
 
 from static.assets import avatar
 
+from django.utils.decorators import method_decorator
+
 
 def signin(request):
     page = 'signin'
@@ -121,10 +123,18 @@ class ChangePasswordView(auth_views.PasswordChangeView):
         context = super().get_context_data(**kwargs)
         context.update(navbar(self.request))
         return context
-
+    
+    @method_decorator(login_required(login_url='users:login'))
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    
 
 class ChangeDonePasswordView(auth_views.PasswordChangeDoneView):    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(navbar(self.request))
         return context
+    
+    @method_decorator(login_required(login_url='users:login'))
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
