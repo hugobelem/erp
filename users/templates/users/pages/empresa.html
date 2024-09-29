@@ -1,7 +1,8 @@
 {% extends "users/account.html" %}
 
 {% block content %}
-<div class="lg:row-span-1 ring-1 dark:ring-white/10 hover:shadow-lg ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
+<div class="lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
+    {% if empresa.cpf_cnpj %}
     <div class="relative flex items-center gap-x-4">
         {% if empresa.logo %}
         <div class="flex gap-x-1 justify-center">
@@ -14,20 +15,22 @@
         <p class="text-xl">
             💼
         </p>
-        {% endif %}
+    {% endif %}
         <div class="text-sm leading-6">
+            {% if empresa.fantasia %}
             <p class="font-semibold text-primary dark:text-white">
             <a>
                 <span class="absolute inset-0"></span>
-                @{{ empresa.fantasia | lower }}
+                @{{ empresa.fantasia | lower | cut:" " }}
             </a>
             </p>
             <p class="text-zinc-500 dark:text-zinc-400">
-            {{ empresa.fantasia }}
+            {{ empresa.razao_social }}
             </p>
+            {% endif %}
         </div>
         <div class="ml-auto absolute right-0 top-0">
-            <a href="{% url "index" %}" class="text-sm">
+            <a href="{% url "users:update_empresa" %}" class="text-sm">
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -45,9 +48,20 @@
             </a>
         </div>
     </div>
-    <p class="mt-6 text-xs text-zinc-400">email</p>
+    {% if empresa.cpf_cnpj %}
+    <p class="mt-6 text-xs text-zinc-400">cnpj</p>
     <p class="text-sm text-zinc-500 dark:text-zinc-400 font-normal lg:text-lg">
-        {{ empresa.email }}
+        {{ empresa.cpf_cnpj }}
     </p>
+    {% endif %}
+
+    {% else %}
+    <p class="mt-6 text-xs text-zinc-400">empresa não cadastrada</p>
+    <a  href="{% url "users:update_empresa" %}" 
+        class="text-sm text-blue-500 dark:text-blue-400 font-normal lg:text-lg">
+        adicionar empresa
+    </a>
+    {% endif %}
+
 </div>
 {% endblock content %}

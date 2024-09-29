@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django import forms
 
-from .models import User
+from .models import User, Empresa
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -86,3 +86,36 @@ class CustomPasswordChangeForm(PasswordChangeForm):
             ),
         )
 
+
+class EmpresaForm(forms.ModelForm):
+    class Meta:
+        model = Empresa
+        fields = [
+            'razao_social',
+            'fantasia',
+            'endereco',
+            'numero',
+            'bairro',
+            'complemento',
+            'cidade',
+            'uf',
+            'celular',
+            'email',
+            'segmento_atuacao',
+            'tipo_pessoa',
+            'cpf_cnpj',
+            'inscricao_estadual',
+            'logo',
+        ]
+
+    def __init__(self, *args, **kwargs):
+        super(EmpresaForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update({
+                'placeholder': name,
+                'class': 
+                ''' peer h-8 w-64 p-0 border-none bg-transparent
+                    placeholder-transparent focus:border-transparent
+                    focus:outline-none focus:ring-0 sm:text-sm ''',
+            })

@@ -11,6 +11,7 @@ from .forms import (
     CustomUserCreationForm,
     CustomUserChangeForm,
     CustomPasswordChangeForm,
+    EmpresaForm
 )
 from .models import User
 
@@ -151,9 +152,25 @@ class ChangeDonePasswordView(auth_views.PasswordChangeDoneView):
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
-
+@login_required(login_url='login')
 def empresa(request):
     context = {}
     context.update(navbar(request))
 
     return render(request, 'users/pages/empresa.html', context)
+
+
+def update_empresa(request):
+    empresa = request.user.empresa
+    form = EmpresaForm(instance=empresa)
+
+    if request.method == 'POST':
+        form = EmpresaForm(request.POST, request.FILES, instance=empresa)
+        if form.is_valid():
+            form.save()
+            return redirect('users:empresa')
+        
+    context = {'form': form}
+    context.update(navbar(request))
+
+    return render(request, 'users/pages/update_empresa.html', context)
