@@ -98,6 +98,7 @@ def account(request):
     return render(request, 'account.html', context)
 
 
+@login_required(login_url='login')
 def user(request):
     context= {}
     context.update(navbar(request))
