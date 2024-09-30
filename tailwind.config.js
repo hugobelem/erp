@@ -2,7 +2,12 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 module.exports = {
-  content: ['./users/templates/**/*.html', './templates/*.html'],
+  content: [
+    './users/templates/**/*.html',
+    './business/templates/**/*.html',
+    './templates/*.html',
+    './users/forms.py',
+  ],
   darkMode: 'selector', // Enable selector strategy for dark mode
   theme: {
     fontSize: {
