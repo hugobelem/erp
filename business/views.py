@@ -41,12 +41,22 @@ def empresa(request):
 @login_required(login_url='login')
 def empresa_update(request):
     business = Business.objects.filter(user=request.user).first()
+
     form = BusinessForm(instance=business)
+
     if request.method == 'POST':
-        form = BusinessForm(request.POST, request.FILES, instance=business)
-        if form.is_valid():
-            form.save()
-            return redirect('business:empresa')
+        if not business:
+            form = BusinessForm(request.POST, request.FILES)
+            if form.is_valid():
+                business = form.save()
+                user = request.user
+                user.business = business
+                user.save()
+        else:
+            form = BusinessForm(request.POST, request.FILES, instance=business)
+            if form.is_valid():
+                form.save()
+                return redirect('business:empresa')
         
     context = {'form': form}
     context.update(navbar(request))
