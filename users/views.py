@@ -95,7 +95,7 @@ def account(request):
     context = {}
     context.update(navbar(request))
 
-    return render(request, 'users/account.html', context)
+    return render(request, 'account.html', context)
 
 
 def user(request):
