@@ -30,7 +30,7 @@
             {% endif %}
         </div>
         <div class="ml-auto absolute right-0 top-0">
-            <a href="#" class="text-sm">
+            <a href="{% url "business:empresa_update" %}" class="text-sm">
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -57,7 +57,7 @@
 
     {% else %}
     <p class="mt-6 text-xs text-zinc-400">empresa não cadastrada</p>
-    <a  href="#" 
+    <a  href="business:empresa_update" 
         class="text-sm text-blue-500 dark:text-blue-400 font-normal lg:text-lg">
         adicionar empresa
     </a>
