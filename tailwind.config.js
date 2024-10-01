@@ -5,7 +5,7 @@ module.exports = {
   content: [
     './users/templates/**/*.html',
     './business/templates/**/*.html',
-    './templates/*.html',
+    './templates/**/*.html',
     './users/forms.py',
   ],
   darkMode: 'selector', // Enable selector strategy for dark mode
