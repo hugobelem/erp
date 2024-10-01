@@ -1,4 +1,4 @@
-<div class="lg:row-span-1 rounded-3xl p-8 h-full flex flex-col">  
+<div class="lg:row-span-2 rounded-3xl p-8 h-full flex flex-col">  
     <p class="text-xl ml-2 font-medium lg:text-3xl tracking-tight text-primary dark:text-white">
       bem-vindo
       <a href="{% url "users:user" %}"
@@ -8,7 +8,7 @@
     </p>
 
     <div class="grid grid-rows-2 lg:grid-rows-4 grid-flow-col gap-4 mt-10">
-      <a href="{% url "users:user" %}" class="lg:row-span-2">
+      <a href="{% url "users:user" %}" class="lg:row-span-1">
           <div class="ring-1 dark:ring-white/10 hover:shadow-xl ring-primary/5 bg-white dark:bg-secondary dark:text-white dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-center items-stretch overflow-hidden text-center lg:text-center">
               <div class="flex gap-x-1 justify-center">
                   {{ avatar }}
@@ -16,7 +16,7 @@
           </div>
       </a>
       
-      <a href="{% url "business:empresa" %}" class="lg:row-span-2">
+      <a href="{% url "business:empresa" %}" class="lg:row-span-1">
           <div class="ring-1 dark:ring-white/10 hover:shadow-xl ring-primary/5 bg-white dark:bg-secondary dark:text-white dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-center items-stretch overflow-hidden text-center lg:text-center">
              
             {% if business.logo %}
@@ -27,23 +27,48 @@
                 class="h-10 w-10 rounded-full ring-1 dark:ring-white/10 ring-primary/5"/>
             </div>
             {% else %}
-            <p class="text-xl">
-                💼
-            </p>
+            <div class="flex gap-x-1 justify-center">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="0.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="group-hover:stroke-zinc-500 dark:stroke-white group-hover:dark:stroke-zinc-500 transition-colors duration-300 ease-in-out">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <style>
+                        text {{
+                        font-family: 'Inter', sans-serif;
+                        font-weight: 10;
+                        font-size: 8px;
+                        }}
+                    </style>
+                    <text 
+                        text-anchor="middle" 
+                        y="50%" x="50%" dy="0.35em" 
+                        pointer-events="auto">
+                        💼
+                    </text>
+                </svg> 
+            </div>
             {% endif %}
           </div>
       </a>
   
-      <div class="lg:col-span-2 xl:col-span-1 h-full flex flex-col text-center justify-center lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 dark:text-white bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
-          <a
+      <div class="ring-1 dark:ring-white/10 hover:shadow-xl ring-primary/5 bg-white dark:bg-secondary dark:text-white dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-center items-stretch overflow-hidden text-center lg:text-center">
+        <a
             href="{% url "users:account" %}"
             class="text-sm text-blue-500 dark:text-blue-400">
             inicio
           </a>
       </div>
   
-      <div class="lg:col-span-2 xl:col-span-1 h-full flex flex-col lg:row-span-2 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8 justify-center items-center">
-          <div class="flex gap-x-1 justify-center">
+      <div class="ring-1 dark:ring-white/10 hover:shadow-xl ring-primary/5 bg-white dark:bg-secondary dark:text-white dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-center items-stretch overflow-hidden text-center lg:text-center">
+        <div class="flex gap-x-1 justify-center">
               <button id="light-theme-button" aria-label="Light theme" class="group flex justify-center items-center size-10 rounded-full">
                   <svg
                   xmlns="http://www.w3.org/2000/svg"
