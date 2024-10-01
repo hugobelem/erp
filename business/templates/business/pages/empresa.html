@@ -1,7 +1,7 @@
 {% extends "account.html" %}
 
-{% block content %}
-<div class="lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
+{% block info %}
+
     {% if business.cpf_cnpj %}
     <div class="relative flex items-center gap-x-4">
         {% if business.logo %}
@@ -63,5 +63,4 @@
     </a>
     {% endif %}
 
-</div>
-{% endblock content %}
+{% endblock info %}
