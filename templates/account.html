@@ -94,10 +94,148 @@
     <div class="p-4 flex-grow overflow-auto">
       <div class="grid grid-cols-1 gap-4 list-none lg:grid-cols-3 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-4">
 
-        {% include "users/navbar.html" %}
+      {% include "users/navbar.html" %}
         
-        {% block content %}
-        {% endblock content %}
+      {% block content %}
+      {% endblock content %}
+
+
+      <div class="lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
+        {% block info %}
+        <p class="text-xl lg:text-xl font-normal mb-5 tracking-tight text-primary dark:text-white">
+          minha conta
+        </p>
+        {% endblock info %}
+      </div>
+
+      <div class="ring-1 dark:ring-white/10 ring-primary/5 rounded-3xl justify-between dark:shadow-thick items-center flex flex-col p-8 h-full bg-white dark:bg-secondary">
+        <div class="w-full">
+          <p class="text-xl font-normal tracking-tight text-primary dark:text-white lg:text-3xl">
+            find me on
+          </p>
+        </div>
+      </div>
+
+      <a href="https://monomod.studio/" class="ring-1 lg:row-span-1 flex flex-col justify-between group hover:ring-primary/10 dark:hover:ring-white/20 duration-300 h-full dark:ring-white/10 ring-primary/5 lg:row-start-2 md:grid-cols-2 md:grid lg:gap-0 md:items-center md:gap-12 lg:grid-cols-none lg:col-start-2 lg:col-span-2 rounded-3xl p-8 bg-white dark:bg-secondary hover:shadow-xl dark:shadow-thick">
+        <div>
+          <p
+            class="ext-xl tracking-tight font-medium text-primary dark:text-white md:text-6xl">
+            Monomod
+          </p>
+          <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
+            Design & development subscriptions for startups.
+            <br />
+            <br />
+            Monomod streamlines the design process with a fixed monthly rate and
+            limitless design requests. Say goodbye to phone calls and extensive contracts;
+            reach out to Monomod directly at any time. Embrace flexibility, pause
+            or terminate your subscription whenever you need.
+          </p>
+        </div>
+      </a>
+
+      <div class="ring-1 dark:ring-white/10 ring-primary/5 flex flex-col justify-between items-center rounded-3xl dark:shadow-thick p-8 bg-white dark:bg-secondary overflow-hidden text-center lg:text-left">
+        <div>
+          <p class="text-xl text-primary dark:text-white lg:text-7xl tracking-tight">
+            Grab my résumé!
+          </p>
+          
+          <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400 md:max-w-xs lg:max-w-none">
+            Unlock the doors to explore the rich tapestry of my professional
+            journey and accomplishments.
+          </p>
+        </div>
+
+        <div class="w-full mt-8 md:max-w-xs lg:max-w-none">
+          <button
+            type="button"
+            class="text-sm py-2 w-full px-4 h-12 font-semibold focus:ring-2 rounded-lg bg-primary dark:bg-white dark:text-primary dark:hover:text-white hover:text-primary dark:hover:bg-white/5 hover:bg-primary/10 text-white flex duration-200 focus:ring-offset-2 focus:ring-inline-flex items-center justify-between">
+            Download my CV
+          </button>
+        </div>
+      </div>
+
+      <a href="https://www.figma.com/@mikeandreuzza" class="ring-1 lg:row-start-3 items-center h-full flex p-8 flex-col justify-center hover:ring-primary/5 dark:hover:ring-white/20 dark:ring-white/10 ring-primary/5 relative rounded-3xl overflow-hidden bg-white dark:bg-secondary hover:shadow-xl dark:shadow-thick">
+        <p class="text-xl text-primary dark:text-white lg:text-2xl mt-6">
+          Produtos
+        </p>
+      </a>
+
+      <a href="https://www.figma.com/@mikeandreuzza" class="ring-1 lg:row-start-3 items-center h-full flex p-8 flex-col justify-center hover:ring-primary/5 dark:hover:ring-white/20 dark:ring-white/10 ring-primary/5 relative rounded-3xl overflow-hidden bg-white dark:bg-secondary hover:shadow-xl dark:shadow-thick">
+        <p class="text-xl text-primary dark:text-white lg:text-2xl mt-6">
+          Contatos
+        </p>
+      </a>
+
+      <div class="ring-1 dark:ring-white/10 ring-primary/5 dark:shadow-thick rounded-3xl p-8 h-full flex flex-col justify-between bg-white dark:bg-secondary">
+        <p class="text-xl tracking-tight font-medium text-primary dark:text-white md:text-5xl">
+          Testimonials
+        </p>
+
+        <div class="md:grid md:grid-cols-2 gap-6 lg:grid-cols-1">
+          <div class="mt-4">
+            <p class="text-sm text-pink-600">
+              "Big fan of your themes. They're well-organized, look clean, and
+              are fast."
+            </p>
+            <p class="text-xs mt-2 text-zinc-500">
+              <span class="block text-xs">Kevin Focke</span>
+              <span class="block text-xs"> Developer</span>
+            </p>
+          </div>
+
+          <div class="mt-4">
+            <p class="text-sm text-orange-500 dark:text-orange-300">
+              "Amazing resource using @astrodotbuild and @tailwindcss! I got it
+              a week ago and have found the contents really useful. 5/5
+            </p>
+            <p class="text-xs mt-2 text-zinc-500">
+              <span class="block text-xs">Alonso</span>
+              <span class="block text-xs"> Entrepreneur</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 xl:col-span-1 h-full flex flex-col justify-between lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
+        <p class="text-xl tracking-tight font-medium text-primary dark:text-white md:text-3xl">
+          As a digital designer, my expertise lies in crafting distinctive
+          visual identities for digital products.
+          <br />
+          <br />
+          I hold the belief that an engaging design begins with shared values, transparent
+          communication, and a genuine respect for the audience.
+        </p>
+        <p class="text-primary dark:text-white mt-4">Michael Andreuzza</p>
+      </div>
+
+      <div class="ring-1 dark:ring-white/10 ring-primary/5 flex flex-col p-8 h-full justify-center items-center rounded-3xl overflow-hidden relative lg:col-span-1 lg:row-start-4 bg-white dark:bg-secondary dark:shadow-thick">
+        <div class="relative p-8 text-center w-full">
+          <p class="text-xl tracking-tight font-medium text-primary dark:text-white md:text-3xl">
+            Subscribe <span class="lg:block">to my newsletter</span>
+          </p>
+
+          <form class="mt-6 sm:flex w-full lg:max-w-sm mx-auto">
+            <label for="email-address" class="sr-only">Email address</label>
+            <input
+              type="email"
+              name="email-address"
+              id="email-address"
+              autocomplete="email"
+              required=""
+              class="block w-full h-12 px-4 py-2 text-sm text-zinc-500 bg-zinc-100 dark:bg-tertiary ring-1 dark:ring-white/10 ring-primary/5 rounded-lg appearance-none focus:ring-white/20 placeholder-zinc-400 focus:border-zinc-300 focus:bg-primary focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              placeholder="Enter your email"/>
+            <div class="mt-4 sm:ml-2 sm:mt-0 sm:flex-shrink-0">
+              <button
+                type="submit"
+                class="text-sm py-2 w-full px-4 h-12 font-semibold focus:ring-2 rounded-lg bg-primary dark:bg-white dark:text-primary dark:hover:text-white hover:text-primary dark:hover:bg-white/5 hover:bg-primary/10 text-white flex duration-200 focus:ring-offset-2 focus:ring-inline-flex items-center justify-between"
+                >Subscribe
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
         
       </div>
     </div>
