@@ -1,13 +1,8 @@
 {% extends 'account.html' %}
 {% load static %}
 
-{% block content %}
-
-<div class="lg:row-span-1 ring-1 dark:ring-white/10 ring-primary/5 bg-white dark:bg-secondary dark:shadow-thick rounded-3xl p-8">
+{% block info %}
     <div class="relative flex items-center gap-x-4">
-        <div class="flex gap-x-1 justify-center">
-            {{ avatar }}
-        </div>
         <div class="text-sm leading-6">
             <p class="font-semibold text-primary dark:text-white">
                 <a href="{% url "users:user" %}">
@@ -94,6 +89,4 @@
       </a>
     </div>
 
-</div>
-
-{% endblock content %}
+{% endblock info %}
