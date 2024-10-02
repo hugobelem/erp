@@ -16,7 +16,7 @@ urlpatterns = [
     path('conta/', include('users.urls')),
     path('conta/empresa/', include('business.urls')),
 
-    path('produto/', include('produto.urls')), 
+    path('produto/', include('product.urls')), 
 
     path('login/', views.signin, name='login'),
     path("cadastro/", views.register, name="register"),
