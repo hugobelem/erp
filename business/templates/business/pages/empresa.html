@@ -2,7 +2,7 @@
 
 {% block info %}
 
-    {% if business.cpf_cnpj %}
+    {% if business.cnpj %}
     <div class="relative flex items-center gap-x-4">
         <div class="text-sm leading-6">
             {% if business.fantasia %}
@@ -36,10 +36,10 @@
             </a>
         </div>
     </div>
-    {% if business.cpf_cnpj %}
+    {% if business.cnpj %}
     <p class="mt-6 text-xs text-zinc-400">cnpj</p>
     <p class="text-sm text-zinc-500 dark:text-zinc-400 font-normal lg:text-lg">
-        {{ business.cpf_cnpj }}
+        {{ business.cnpj }}
     </p>
     {% endif %}
 
