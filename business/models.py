@@ -12,10 +12,8 @@ class Business(models.Model):
     uf = models.CharField(max_length=2, blank=True, null=True)
     celular = models.IntegerField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
-    segmento_atuacao = models.CharField(max_length=255, blank=True, null=True)
-    tipo_pessoa = models.CharField(max_length=50, blank=True, null=True)
-    cpf_cnpj = models.CharField(max_length=50, blank=False, null=True)
-    inscricao_estadual = models.CharField(max_length=50, blank=True, null=True)
+    cnpj = models.CharField(max_length=50, blank=False, null=True)
+    ie = models.CharField(max_length=50, blank=True, null=True)
     logo = models.ImageField(
         blank=True, null=True,
         upload_to='images/logo',
