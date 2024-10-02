@@ -3,7 +3,7 @@ from django.dispatch import receiver
 
 import os
 
-from .models import Business
+from .models import Empresa
 
 from users.models import User
 
@@ -17,7 +17,7 @@ from users.models import User
 #         user.save()
 
 
-@receiver(post_delete, sender=Business)
+@receiver(post_delete, sender=Empresa)
 def auto_delete_logo_on_delete(sender, instance, **kwargs):
     logo = instance.logo
     if logo:
@@ -25,14 +25,14 @@ def auto_delete_logo_on_delete(sender, instance, **kwargs):
             os.remove(instance.logo.path)
 
 
-@receiver(pre_save, sender=Business)
+@receiver(pre_save, sender=Empresa)
 def auto_delete_logo_on_change(sender, instance, **kwargs):
     if not instance.pk:
         return False
     
     try:
-        old_logo = Business.objects.get(pk=instance.pk).logo
-    except Business.DoesNotExist:
+        old_logo = Empresa.objects.get(pk=instance.pk).logo
+    except Empresa.DoesNotExist:
         return False
     
     new_logo = instance.logo

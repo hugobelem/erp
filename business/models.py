@@ -1,6 +1,6 @@
 from django.db import models
 
-class Business(models.Model):
+class Empresa(models.Model):
     razao_social = models.CharField(max_length=255, blank=True, null=True)
     fantasia = models.CharField(max_length=255, blank=True, null=True)
     endereco = models.CharField(max_length=255, blank=True, null=True)
@@ -26,7 +26,7 @@ class Business(models.Model):
             return f'Empresa {self.id}'
         
 
-class Customer(models.Model):
+class Cliente(models.Model):
     nome = models.CharField(max_length=255, blank=True, null=True)
     apelido = models.CharField(max_length=255, blank=True, null=True)
     código = models.CharField(max_length=255, null=True, blank=True)
@@ -43,8 +43,12 @@ class Customer(models.Model):
     sexo = models.CharField(max_length=50, blank=True, null=True)
     observacoes = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return self.nome
+    
 
-class Product(models.Model):
+
+class Produto(models.Model):
     descricao = models.CharField(max_length=255, blank=True, null=True)
     código = models.CharField(max_length=255, null=True, blank=True)
     preco = models.DecimalField(max_digits=10, decimal_places=2)
@@ -54,11 +58,14 @@ class Product(models.Model):
     custo = models.IntegerField(blank=True, null=True)
     criado = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.descricao
 
-class Order(models.Model):
+
+class Pedido(models.Model):
     numero = models.IntegerField(unique=True)
-    produto = models.ManyToManyField(Product, through='OrderItem')
-    cliente = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    produto = models.ManyToManyField(Produto, through='PedidoItem')
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     itens = models.PositiveIntegerField()
     desconto = models.IntegerField()
     total = models.DecimalField(max_digits=10, decimal_places=2)
@@ -66,10 +73,17 @@ class Order(models.Model):
     recebimento = models.CharField(max_length=255, blank=True, null=True)
     categoria = models.CharField(max_length=255, blank=True, null=True)
 
-class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    produto = models.ForeignKey(Product, on_delete=models.CASCADE)
+    def __str__(self):
+        return f'Pedido {str(self.numero)}'
+    
+    
+class PedidoItem(models.Model):
+    order = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField()
     preco = models.DecimalField(max_digits=10, decimal_places=2)
     desconto = models.IntegerField()
     preco_total = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f''

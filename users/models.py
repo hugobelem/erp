@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-from business.models import Business
+from business.models import Empresa
 
 class User(AbstractUser):
     name = models.CharField(max_length=255)
@@ -10,7 +10,7 @@ class User(AbstractUser):
         max_length=100, unique=True, blank=True, null=True
     )
     business = models.ForeignKey(
-        Business,
+        Empresa,
         on_delete=models.CASCADE,
         null=True, blank=True,
     )

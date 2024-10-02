@@ -15,7 +15,7 @@ from .forms import (
 from .models import User
 
 from static.assets import avatar
-from business.models import Business
+from business.models import Empresa
 
 
 def signin(request):
@@ -74,8 +74,8 @@ def navbar(request):
 
     if request.user.is_authenticated:
         try:
-            business = Business.objects.filter(user=user).first()
-        except Business.DoesNotExist:
+            business = Empresa.objects.filter(user=user).first()
+        except Empresa.DoesNotExist:
             business = None
 
         svg = avatar.generate(request.user.name)

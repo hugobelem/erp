@@ -1,8 +1,16 @@
 from django.contrib import admin
 
-from .models import Business, Product, Order, OrderItem
+from .models import Empresa, Cliente, Produto, Pedido, PedidoItem
 
-admin.site.register(Business)
-admin.site.register(Product)
-admin.site.register(Order)
-admin.site.register(OrderItem)
+
+class PedidoItemInline(admin.TabularInline):
+    model = PedidoItem
+    extra = 0
+
+class PedidoAdmin(admin.ModelAdmin):
+    inlines = [PedidoItemInline]
+
+admin.site.register(Empresa)
+admin.site.register(Cliente)
+admin.site.register(Produto)
+admin.site.register(Pedido, PedidoAdmin)

@@ -3,8 +3,8 @@ from django.utils.safestring import mark_safe
 from django.contrib.auth.decorators import login_required
 
 
-from .models import Business
-from .forms import BusinessForm
+from .models import Empresa
+from .forms import EmpresaForm
 
 from static.assets import avatar
 
@@ -14,8 +14,8 @@ def navbar(request):
 
     if request.user.is_authenticated:
         try:
-            business = Business.objects.filter(user=user).first()
-        except Business.DoesNotExist:
+            business = Empresa.objects.filter(user=user).first()
+        except Empresa.DoesNotExist:
             business = None
 
         svg = avatar.generate(request.user.name)
@@ -40,20 +40,20 @@ def empresa(request):
 
 @login_required(login_url='login')
 def empresa_update(request):
-    business = Business.objects.filter(user=request.user).first()
+    business = Empresa.objects.filter(user=request.user).first()
 
-    form = BusinessForm(instance=business)
+    form = EmpresaForm(instance=business)
 
     if request.method == 'POST':
         if not business:
-            form = BusinessForm(request.POST, request.FILES)
+            form = EmpresaForm(request.POST, request.FILES)
             if form.is_valid():
                 business = form.save()
                 user = request.user
                 user.business = business
                 user.save()
         else:
-            form = BusinessForm(request.POST, request.FILES, instance=business)
+            form = EmpresaForm(request.POST, request.FILES, instance=business)
             if form.is_valid():
                 form.save()
                 return redirect('business:empresa')

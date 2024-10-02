@@ -1,14 +1,14 @@
 from django.forms import ModelForm
 
-from .models import Business
+from .models import Empresa
 
-class BusinessForm(ModelForm):
+class EmpresaForm(ModelForm):
     class Meta:
-        model = Business
+        model = Empresa
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
-        super(BusinessForm, self).__init__(*args, **kwargs)
+        super(EmpresaForm, self).__init__(*args, **kwargs)
         for name, field in self.fields.items():
             field.widget.attrs.update({
                 'placeholder': name,
